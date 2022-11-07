@@ -1,10 +1,13 @@
-import logo from './logo.svg';
+import { Toaster } from 'react-hot-toast';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import router from './Components/Routes/Routes';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='text-red-700 text-5xl'>H1 Tagssss...</h1>
+    <div className="App bg-cyan-50">
+      <RouterProvider router={router}></RouterProvider>
+      <Toaster />
     </div>
   );
 }
