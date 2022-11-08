@@ -32,7 +32,50 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+/*  */
+
+.cus-svg-rev {
+  /* background-image: url(./Components/assets/wave.svg); */
+  /* background-repeat: no-repeat; */
+
+  background-image: linear-gradient(-95deg, blue, cyan);
+}
+
+.cus-svg-login {
+  /* background-image: url(./Components/assets/wave.svg); */
+  /* background-repeat: no-repeat; */
+
+  background-image: linear-gradient(95deg, blue, cyan);
+}
+
+.cus-svg-register {
+  background-image: url(./Components/assets/wave.svg);
+  /* background-repeat: no-repeat; */
+
+  /* background: linear-gradient(95deg, blue, cyan); */
+}
+
+.head {
+  background-image: linear-gradient(90deg, cyan, blue, cyan);
+}
+
+.curly {
+  font-family: cursive;
+}
+
+.active {
+  color: black
+}
+
+.bg {
+  background-image: url(./Components/assets/bg.svg);
+  /* background-repeat: no-repeat; */
+
+  /* background: linear-gradient(95deg, blue, cyan); */
 }

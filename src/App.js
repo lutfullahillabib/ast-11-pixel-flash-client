@@ -1,7 +1,9 @@
 import { Toaster } from 'react-hot-toast';
 import { RouterProvider } from 'react-router-dom';
-import './App.css';
 import router from './Components/Routes/Routes';
+
+import './App.css';
+
 
 function App() {
   return (
@@ -13,3 +15,5 @@ function App() {
 }
 
 export default App;
+
+// npm i lottie - react

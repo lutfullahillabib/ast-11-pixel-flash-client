@@ -1,11 +1,13 @@
+
+import { createBrowserRouter } from "react-router-dom";
+
 import Main from "../Layout/Main";
-import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Log/Login";
 import Register from "../Pages/Log/Register";
 import Error from "../Pages/Shared/Error";
 
-const { createBrowserRouter } = require("react-router-dom");
+// const { createBrowserRouter } = require("react-router-dom");
 
 const router = createBrowserRouter([
     {
@@ -29,10 +31,7 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>
             },
-            {
-                path: '/blog',
-                element: <Blog />
-            },
+
 
         ]
     }
