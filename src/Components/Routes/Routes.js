@@ -6,6 +6,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Log/Login";
 import Register from "../Pages/Log/Register";
 import Error from "../Pages/Shared/Error";
+import allServices from "./Loader";
 
 // const { createBrowserRouter } = require("react-router-dom");
 
@@ -17,11 +18,16 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: allServices,
+                // loader: () => {
+                //     return fetch('http://localhost:5000/services')
+                // }
             },
             {
                 path: '/home',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: allServices,
             },
             {
                 path: '/login',

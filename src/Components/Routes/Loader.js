@@ -1,8 +1,8 @@
 
-// const allCourses =
-//     async () => {
-//         return fetch('https://learn-with-labib-server.vercel.app/courses')
-//     };
+const allServices =
+    () => {
+        return fetch('http://localhost:5000/services')
+    };
 
 // const allCategories =
 //     async () => {
@@ -19,4 +19,4 @@
 //         return fetch(`https://learn-with-labib-server.vercel.app/courses/${params.id}`)
 //     };
 
-// export { allCourses, allCategories, singleCategory, singleCourse };
+export default allServices;

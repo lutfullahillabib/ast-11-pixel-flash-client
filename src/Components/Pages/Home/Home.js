@@ -1,12 +1,17 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Slider from './Slider';
 
-import Banner from './Banner';
 
 const Home = () => {
+
+    const services = useLoaderData();
+    console.log(services);
+
     return (
         <div>
-            <h1>home</h1>
-            <Banner></Banner>
+            <Slider ></Slider>
+            <h2>home</h2>
         </div>
     );
 };
