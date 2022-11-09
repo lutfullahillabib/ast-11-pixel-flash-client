@@ -1,7 +1,12 @@
 
-const allServices =
-    () => {
+const threeServices =
+    async () => {
         return fetch('http://localhost:5000/services')
+    };
+
+const allServices =
+    async () => {
+        return fetch('http://localhost:5000/allservices')
     };
 
 // const allCategories =
@@ -19,4 +24,4 @@ const allServices =
 //         return fetch(`https://learn-with-labib-server.vercel.app/courses/${params.id}`)
 //     };
 
-export default allServices;
+export { threeServices, allServices };

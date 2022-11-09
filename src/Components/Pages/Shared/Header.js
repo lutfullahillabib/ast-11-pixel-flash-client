@@ -30,13 +30,13 @@ const Header = () => {
 
                         <Link
                             to="/"
-                            title="Photography-With-Labib"
+                            title="Pixel-Flash"
                             className="inline-flex items-center p-2 curly "
                         >
                             <img src={logo} alt="logo" className='w-12 ' />
 
                             <span className="ml-2 text-lg md:text-xl font-bold tracking-wide uppercase ">
-                                Photography-With-Labib
+                                Pixel-Flash
                             </span>
                         </Link>
 
@@ -219,12 +219,12 @@ const Header = () => {
                                         <div className='p-1 hover:text-white curly'>
                                             <Link
                                                 to="/"
-                                                title=" Photography-With-Labib"
+                                                title=" Pixel-Flash"
                                                 className="inline-flex items-center "
                                             >
                                                 <img src={logo} alt="logo" className='w-10' />
                                                 <span className="ml-2 text-xl font-bold tracking-wide ">
-                                                    Photography-With-Labib
+                                                    Pixel-Flash
 
                                                 </span>
                                             </Link>

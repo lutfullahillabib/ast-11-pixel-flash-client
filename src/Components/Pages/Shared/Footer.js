@@ -25,7 +25,7 @@ const Footer = () => {
                                     <Link
                                         className="text-blue-700 hover:text-blue-900"
                                         to="/"
-                                        rel="noreferrer"
+
                                         aria-label="Twitter"
                                     >
                                         <svg
@@ -43,7 +43,7 @@ const Footer = () => {
                                     <Link
                                         className="text-black hover:text-black/75"
                                         to="/"
-                                        rel="noreferrer"
+
                                         aria-label="GitHub"
                                     >
                                         <svg
@@ -63,7 +63,7 @@ const Footer = () => {
                                     <Link
                                         className="text-pink-600 hover:text-pink-600/75"
                                         to="/"
-                                        rel="noreferrer"
+
                                         aria-label="Dribbble"
                                     >
                                         <svg
@@ -90,34 +90,36 @@ const Footer = () => {
                                             <Link
                                                 className="text-black transition hover:text-black/75"
                                                 to="/"
-                                                rel="noreferrer"
+
                                             >
                                                 Home
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link
+                                            <a
                                                 className="text-black transition hover:text-black/75"
-                                                to="/"
-                                                rel="noreferrer"
+                                                // to="/"
+                                                href='#aboutMe'
+
                                             >
-                                                About Us
-                                            </Link>
+                                                About
+                                            </a>
                                         </li>
                                         <li>
-                                            <Link
+                                            <a
                                                 className="text-black transition hover:text-black/75"
                                                 to="/"
-                                                rel="noreferrer"
+                                                href='#contact'
+
                                             >
                                                 Contact
-                                            </Link>
+                                            </a>
                                         </li>
                                         <li>
                                             <Link
                                                 className="text-black transition hover:text-black/75"
                                                 to="/services"
-                                                rel="noreferrer"
+
                                             >
                                                 Services
                                             </Link>
@@ -127,7 +129,7 @@ const Footer = () => {
                                             <Link
                                                 className="text-black transition hover:text-black/75"
                                                 to="/blog"
-                                                rel="noreferrer"
+
                                             >
                                                 Blog
                                             </Link>
