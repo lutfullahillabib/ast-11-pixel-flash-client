@@ -6,6 +6,7 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import useTitle from '../../../Hooks/Title';
+import Review from '../Reviews/DetailsReview/Review';
 
 
 const ServiceDetails = () => {
@@ -102,7 +103,7 @@ const ServiceDetails = () => {
             {/* review */}
 
             <div>
-
+                <Review serviceDetails={serviceDetails}></Review>
             </div>
 
         </div>

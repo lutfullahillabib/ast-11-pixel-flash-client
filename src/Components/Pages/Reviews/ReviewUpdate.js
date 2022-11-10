@@ -1,14 +1,11 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import useTitle from "../../../Hooks/Title";
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import useTitle from '../../../Hooks/Title';
 
+const ReviewUpdate = () => {
 
-const AddService = () => {
-
-    useTitle('Add-Service');
+    useTitle('Update-Review');
 
 
     //
@@ -21,54 +18,43 @@ const AddService = () => {
         behavior: 'smooth'
     });
 
-    //
+    // 
 
+    const updateReview = useLoaderData();
 
-    const [error, setError] = useState('');
+    const { _id } = updateReview;
 
+    const { serviceName, rating, message } = updateReview;
+
+    console.log(updateReview);
+
+    const [review, setReview] = useState(updateReview);
 
     const navigate = useNavigate();
 
 
-    const handleAddService = (event) => {
+    const handelUpdateReview = (event) => {
         event.preventDefault();
+
         const form = event.target;
-        const name = form.name.value;
-        const img = form.img.value;
-        const description = form.description.value;
-        const price = form.price.value;
+        // form.reset()
 
-        const ratings = parseInt(form.rating.value);
-
-        const rating = ratings.toString();
-
-        // if (typeof (rating) === 'number') {
-        //     console.log(rating);
-        // }
-
-        console.log(name, img, description, price, rating);
-
-        const newService = {
-            name,
-            img,
-            description,
-            price,
-            rating,
-        };
-
-        fetch('http://localhost:5000/addService', {
-            method: "POST",
+        fetch(`http://localhost:5000/myReview/${_id}`, {
+            method: 'PUT',
             headers: {
-                "content-type": "application/json",
+                'content-type': 'application/json'
             },
-            body: JSON.stringify(newService),
+            body: JSON.stringify(review)
         })
-            .then((res) => res.json())
-            .then((data) => {
+            .then(res => res.json())
+            .then(data => {
 
-                if (data.acknowledged) {
+                // console.log(data);
 
-                    toast.success(`Service Successfully Added, 'Name' = ${name}`, {
+                if (data.modifiedCount > 0) {
+                    console.log(data);
+
+                    toast.success(`Review Successfully Updated`, {
                         duration: 3000,
                         position: "top-center",
 
@@ -98,18 +84,12 @@ const AddService = () => {
 
                     form.reset();
 
-                    setError('');
+                    navigate('/myReview')
 
                 }
-
-                navigate("/services");
-
             })
             .catch((err) => {
-
                 console.error(err);
-
-                setError(error.message);
 
                 toast.error(`Error = ${err.message}`, {
                     duration: 3000,
@@ -138,64 +118,37 @@ const AddService = () => {
                         "aria-live": "polite",
                     },
                 });
-
             });
-    };
+
+
+    }
+
+
+    const handelUpdateChange = event => {
+        const value = event.target.value;
+        const field = event.target.name;
+        const newReview = { ...review }
+        newReview[field] = value
+        setReview(newReview)
+        console.log(review)
+
+    }
+
 
     return (
-        <div className="py-5">
 
-            <div className="w-11/12 mx-auto  p-8 space-y-3 rounded-xl bg-blue-600 text-white cus-svg-login ">
 
-                <h1 className="text-2xl  font-bold text-center underline py-3">Add A New Service</h1>
+        <div className='py-5'>
+
+            <div className="w-11/12 mx-auto py-10 px-8 space-y-3 rounded-xl bg-blue-600 text-white cus-svg-login ">
+
+                <h1 className='text-black text-2xl font-semibold text-center underline'>Update Your Review for <span className='text-white'>'{serviceName}'</span></h1>
 
                 <form
-                    onSubmit={handleAddService}
-                    className="space-y-6 max-w-lg mx-auto">
 
-                    {/* name */}
-                    <div className="space-y-1">
+                    onSubmit={handelUpdateReview}
 
-                        <label htmlFor="name" className="block text-white text-start font-semibold text-xl">
-                            Service Name
-                        </label>
-
-                        <input type="text" name="name" id="name" placeholder="Service Name" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
-
-                    </div>
-
-                    {/* img */}
-                    <div className="space-y-1">
-
-                        <label htmlFor="img" className="block text-white text-start font-semibold text-xl">
-                            Image URL
-                        </label>
-
-                        <input type="text" name="img" id="img" placeholder="Image URL" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
-
-                    </div>
-
-                    {/* description */}
-                    <div className="space-y-1">
-
-                        <label htmlFor="description" className="block text-white text-start font-semibold text-xl">
-                            Description
-                        </label>
-
-                        <textarea rows={5} type="text" name="description" id="description" placeholder="Description" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
-
-                    </div>
-
-                    {/* price */}
-                    <div className="space-y-1">
-
-                        <label htmlFor="price" className="block text-white text-start font-semibold text-xl">
-                            Price
-                        </label>
-
-                        <input type="number" name="price" id="price" placeholder="Price" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
-
-                    </div>
+                    className="space-y-6 max-w-lg mx-auto my-5">
 
                     {/* rating */}
                     <div className="space-y-1">
@@ -205,6 +158,11 @@ const AddService = () => {
                         </label>
 
                         <select
+
+                            defaultValue={rating}
+
+                            onChange={handelUpdateChange}
+
                             name="rating"
                             id="rating"
                             placeholder="Rating"
@@ -262,8 +220,22 @@ const AddService = () => {
 
                     </div>
 
+                    {/* message */}
+                    <div className="space-y-1">
 
-                    <p className='text-red-600 font-semibold text-xl py-2 '>{error}</p>
+                        <label htmlFor="message" className="block text-white text-start font-semibold text-xl">
+                            Message
+                        </label>
+
+                        <textarea rows={5}
+
+                            defaultValue={message}
+
+                            onChange={handelUpdateChange}
+
+                            type="text" name="message" id="message" placeholder="Message" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
+
+                    </div>
 
                     {/* submit-button */}
                     <button
@@ -272,15 +244,20 @@ const AddService = () => {
                         Submit
                     </button>
 
+                    <Link to='/myReview' className="block w-full p-3 text-center text-white bg-green-900 rounded-lg font-medium hover:text-black hover:bg-green-300 duration-1000">
+                        <button
+                        >
+                            Go Back
+                        </button>
+                    </Link>
+
                 </form>
 
             </div>
-
-
         </div>
+
     );
 };
 
-export default AddService;
-
+export default ReviewUpdate;
 

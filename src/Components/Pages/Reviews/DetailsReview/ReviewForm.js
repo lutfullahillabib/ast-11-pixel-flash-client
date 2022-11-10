@@ -1,74 +1,52 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import useTitle from "../../../Hooks/Title";
+import { AuthContext } from '../../../Contexts/AuthProvider';
 
+const ReviewForm = ({ serviceDetails }) => {
 
-const AddService = () => {
+    const { name, img, description, price, rating, _id } = serviceDetails;
+    // console.log(serviceDetails);
 
-    useTitle('Add-Service');
+    const { user } = useContext(AuthContext);
 
-
-    //
-
-    // window.scrollTo(0, 0);
-
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-    });
-
-    //
-
-
-    const [error, setError] = useState('');
-
-
-    const navigate = useNavigate();
-
-
-    const handleAddService = (event) => {
+    const handleReview = (event) => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
-        const img = form.img.value;
-        const description = form.description.value;
-        const price = form.price.value;
+        const rating = form.rating.value;
+        const message = form.message.value;
+        const userName = user?.displayName;
+        const email = user?.email;
+        const userImg = user?.photoURL;
+        const serviceId = _id;
+        const serviceName = name;
+        console.log(message, userName);
 
-        const ratings = parseInt(form.rating.value);
-
-        const rating = ratings.toString();
-
-        // if (typeof (rating) === 'number') {
-        //     console.log(rating);
-        // }
-
-        console.log(name, img, description, price, rating);
-
-        const newService = {
-            name,
-            img,
-            description,
-            price,
+        const review = {
             rating,
-        };
+            message,
+            userImg,
+            userName,
+            email,
+            serviceId,
+            serviceName,
+        }
 
-        fetch('http://localhost:5000/addService', {
+        // console.log(typeof(rating));
+
+        fetch('http://localhost:5000/review', {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(newService),
+            body: JSON.stringify(review),
         })
             .then((res) => res.json())
             .then((data) => {
 
+                // console.log(data);
                 if (data.acknowledged) {
 
-                    toast.success(`Service Successfully Added, 'Name' = ${name}`, {
+                    toast.success(`Review Successfully Added`, {
                         duration: 3000,
                         position: "top-center",
 
@@ -97,19 +75,10 @@ const AddService = () => {
                     });
 
                     form.reset();
-
-                    setError('');
-
                 }
-
-                navigate("/services");
-
             })
             .catch((err) => {
-
                 console.error(err);
-
-                setError(error.message);
 
                 toast.error(`Error = ${err.message}`, {
                     duration: 3000,
@@ -138,64 +107,22 @@ const AddService = () => {
                         "aria-live": "polite",
                     },
                 });
-
             });
+
     };
+    // console.log(reviews);
+
+
 
     return (
-        <div className="py-5">
+        <div>
 
-            <div className="w-11/12 mx-auto  p-8 space-y-3 rounded-xl bg-blue-600 text-white cus-svg-login ">
-
-                <h1 className="text-2xl  font-bold text-center underline py-3">Add A New Service</h1>
+            <div className='my-5'>
+                <h1 className='text-black text-2xl font-semibold text-center underline'>Please, Give A Review for <span className='text-white'>'{name}'</span></h1>
 
                 <form
-                    onSubmit={handleAddService}
-                    className="space-y-6 max-w-lg mx-auto">
-
-                    {/* name */}
-                    <div className="space-y-1">
-
-                        <label htmlFor="name" className="block text-white text-start font-semibold text-xl">
-                            Service Name
-                        </label>
-
-                        <input type="text" name="name" id="name" placeholder="Service Name" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
-
-                    </div>
-
-                    {/* img */}
-                    <div className="space-y-1">
-
-                        <label htmlFor="img" className="block text-white text-start font-semibold text-xl">
-                            Image URL
-                        </label>
-
-                        <input type="text" name="img" id="img" placeholder="Image URL" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
-
-                    </div>
-
-                    {/* description */}
-                    <div className="space-y-1">
-
-                        <label htmlFor="description" className="block text-white text-start font-semibold text-xl">
-                            Description
-                        </label>
-
-                        <textarea rows={5} type="text" name="description" id="description" placeholder="Description" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
-
-                    </div>
-
-                    {/* price */}
-                    <div className="space-y-1">
-
-                        <label htmlFor="price" className="block text-white text-start font-semibold text-xl">
-                            Price
-                        </label>
-
-                        <input type="number" name="price" id="price" placeholder="Price" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
-
-                    </div>
+                    onSubmit={handleReview}
+                    className="space-y-6 max-w-lg mx-auto my-5">
 
                     {/* rating */}
                     <div className="space-y-1">
@@ -262,8 +189,16 @@ const AddService = () => {
 
                     </div>
 
+                    {/* message */}
+                    <div className="space-y-1">
 
-                    <p className='text-red-600 font-semibold text-xl py-2 '>{error}</p>
+                        <label htmlFor="message" className="block text-white text-start font-semibold text-xl">
+                            Message
+                        </label>
+
+                        <textarea rows={5} type="text" name="message" id="message" placeholder="Message" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
+
+                    </div>
 
                     {/* submit-button */}
                     <button
@@ -275,12 +210,9 @@ const AddService = () => {
                 </form>
 
             </div>
-
-
         </div>
     );
 };
 
-export default AddService;
-
+export default ReviewForm;
 

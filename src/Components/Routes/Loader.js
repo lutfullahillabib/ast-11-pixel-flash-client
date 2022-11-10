@@ -14,10 +14,10 @@ const singleServiceDetails =
         return fetch(`http://localhost:5000/allservices/${params.id}`)
     };
 
-// const singleCourse =
-//     async ({ params }) => {
-//         return fetch(`https://learn-with-labib-server.vercel.app/courses/${params.id}`)
-//     };
+const updateReview =
+    async ({ params }) => {
+        return fetch(`http://localhost:5000/myReview/${params.id}`)
+    };
 
-export { threeServices, allServices, singleServiceDetails };
+export { threeServices, allServices, singleServiceDetails, updateReview };
 
