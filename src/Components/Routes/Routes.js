@@ -83,7 +83,7 @@ const router = createBrowserRouter([
 
             {
                 path: '/review',
-                element: <ReviewForm></ReviewForm>
+                element: <PrivateRoute><ReviewForm></ReviewForm></PrivateRoute>
             }
 
         ]
@@ -91,3 +91,4 @@ const router = createBrowserRouter([
 ])
 
 export default router;
+

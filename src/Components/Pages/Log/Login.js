@@ -43,35 +43,58 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(from, { replace: true });
 
-                toast.success(`Login Successful, 'Email' = ${user.email}`, {
-                    duration: 3000,
-                    position: "top-center",
 
-                    // Styling
-                    style: {
-                        borderRadius: "10px",
-                        background: "#333",
-                        color: "#fff",
+                const currentUser = {
+                    email: user.email,
+                };
+
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
                     },
-                    className: "",
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        // console.log(data);
+                        // localStorage is the easiest but not the most secure place to store jwt
+                        localStorage.setItem("Pixel-Flash", data.token);
 
-                    // Custom Icon
-                    icon: '✔️',
 
-                    // Change colors of success/error/loading icon
-                    iconTheme: {
-                        primary: "#000",
-                        secondary: "#fff",
-                    },
+                        navigate(from, { replace: true });
 
-                    // Aria
-                    ariaProps: {
-                        role: "status",
-                        "aria-live": "polite",
-                    },
-                });
+                        toast.success(`Login Successful, 'Email' = ${user.email}`, {
+                            duration: 3000,
+                            position: "top-center",
+
+                            // Styling
+                            style: {
+                                borderRadius: "10px",
+                                background: "#333",
+                                color: "#fff",
+                            },
+                            className: "",
+
+                            // Custom Icon
+                            icon: '✔️',
+
+                            // Change colors of success/error/loading icon
+                            iconTheme: {
+                                primary: "#000",
+                                secondary: "#fff",
+                            },
+
+                            // Aria
+                            ariaProps: {
+                                role: "status",
+                                "aria-live": "polite",
+                            },
+                        });
+
+                    });
+
             })
             .catch(error => {
                 console.error(error);
@@ -117,41 +140,63 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                form.reset();
-                setError('');
-                navigate(from, { replace: true });
 
-                toast.success(`Login Successful, 'Email' = ${user.email}`, {
-                    duration: 3000,
-                    position: "top-center",
+                const currentUser = {
+                    email: user.email,
+                };
 
-                    // Styling
-                    style: {
-                        borderRadius: "10px",
-                        background: "#333",
-                        color: "#fff",
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
                     },
-                    className: "",
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        // console.log(data);
+                        // localStorage is the easiest but not the most secure place to store jwt
+                        localStorage.setItem("Pixel-Flash", data.token);
 
-                    // Custom Icon
-                    icon: '✔️',
 
-                    // Change colors of success/error/loading icon
-                    iconTheme: {
-                        primary: "#000",
-                        secondary: "#fff",
-                    },
+                        toast.success(`Login Successful, 'Email' = ${user.email}`, {
+                            duration: 3000,
+                            position: "top-center",
 
-                    // Aria
-                    ariaProps: {
-                        role: "status",
-                        "aria-live": "polite",
-                    },
-                });
+                            // Styling
+                            style: {
+                                borderRadius: "10px",
+                                background: "#333",
+                                color: "#fff",
+                            },
+                            className: "",
+
+                            // Custom Icon
+                            icon: '✔️',
+
+                            // Change colors of success/error/loading icon
+                            iconTheme: {
+                                primary: "#000",
+                                secondary: "#fff",
+                            },
+
+                            // Aria
+                            ariaProps: {
+                                role: "status",
+                                "aria-live": "polite",
+                            },
+                        });
+
+                        form.reset();
+                        navigate(from, { replace: true });
+                    });
+
+
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message);
+
                 toast.error(`Error = ${error.message}`, {
                     duration: 3000,
                     position: "top-center",
@@ -179,6 +224,7 @@ const Login = () => {
                         "aria-live": "polite",
                     },
                 });
+
             })
 
     }

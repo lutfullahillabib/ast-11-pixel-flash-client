@@ -55,9 +55,9 @@ const SingleService = ({ service }) => {
 
                         <div className='text-justify text-white'>
 
-                            <p> {description.length > 100 ? description.slice(0, 100) + ' .....' : description} </p>
+                            <p> {description?.length > 100 ? description.slice(0, 100) + ' .....' : description} </p>
 
-                            {/* <p> {` ${description.length > 100 ? description.slice(0, 100) : description} `} <br />  .....</p> */}
+                            {/* <p> {` ${description?.length > 100 ? description.slice(0, 100) : description} `} <br />  .....</p> */}
 
                         </div>
 

@@ -41,34 +41,58 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate('/');
-                toast.success(`Registration Successful, 'Email' = ${user.email}`, {
-                    duration: 3000,
-                    position: "top-center",
 
-                    // Styling
-                    style: {
-                        borderRadius: "10px",
-                        background: "#333",
-                        color: "#fff",
+
+                const currentUser = {
+                    email: user.email,
+                };
+
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
                     },
-                    className: "",
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        // console.log(data);
+                        // localStorage is the easiest but not the most secure place to store jwt
+                        localStorage.setItem("Pixel-Flash", data.token);
 
-                    // Custom Icon
-                    icon: '✔️',
+                        navigate('/');
 
-                    // Change colors of success/error/loading icon
-                    iconTheme: {
-                        primary: "#000",
-                        secondary: "#fff",
-                    },
+                        toast.success(`Registration Successful, 'Email' = ${user.email}`, {
+                            duration: 3000,
+                            position: "top-center",
 
-                    // Aria
-                    ariaProps: {
-                        role: "status",
-                        "aria-live": "polite",
-                    },
-                });
+                            // Styling
+                            style: {
+                                borderRadius: "10px",
+                                background: "#333",
+                                color: "#fff",
+                            },
+                            className: "",
+
+                            // Custom Icon
+                            icon: '✔️',
+
+                            // Change colors of success/error/loading icon
+                            iconTheme: {
+                                primary: "#000",
+                                secondary: "#fff",
+                            },
+
+                            // Aria
+                            ariaProps: {
+                                role: "status",
+                                "aria-live": "polite",
+                            },
+                        });
+
+                    });
+
+
 
             })
             .catch(error => {
@@ -153,38 +177,62 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 setError('');
-                form.reset();
                 handleUpdateUserProfile(name, photoURL);
 
-                toast.success(`Registration Successful, 'Email' = ${email}`, {
-                    duration: 3000,
-                    position: "top-center",
 
-                    // Styling
-                    style: {
-                        borderRadius: "10px",
-                        background: "#333",
-                        color: "#fff",
+                const currentUser = {
+                    email: user.email,
+                };
+
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
                     },
-                    className: "",
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        // console.log(data);
+                        // localStorage is the easiest but not the most secure place to store jwt
+                        localStorage.setItem("Pixel-Flash", data.token);
 
-                    // Custom Icon
-                    icon: '✔️',
+                        form.reset();
 
-                    // Change colors of success/error/loading icon
-                    iconTheme: {
-                        primary: "#000",
-                        secondary: "#fff",
-                    },
+                        toast.success(`Registration Successful, 'Email' = ${email}`, {
+                            duration: 3000,
+                            position: "top-center",
 
-                    // Aria
-                    ariaProps: {
-                        role: "status",
-                        "aria-live": "polite",
-                    },
-                });
+                            // Styling
+                            style: {
+                                borderRadius: "10px",
+                                background: "#333",
+                                color: "#fff",
+                            },
+                            className: "",
 
-                navigate('/');
+                            // Custom Icon
+                            icon: '✔️',
+
+                            // Change colors of success/error/loading icon
+                            iconTheme: {
+                                primary: "#000",
+                                secondary: "#fff",
+                            },
+
+                            // Aria
+                            ariaProps: {
+                                role: "status",
+                                "aria-live": "polite",
+                            },
+                        });
+
+                        navigate('/');
+
+                    });
+
+
+
 
             })
 

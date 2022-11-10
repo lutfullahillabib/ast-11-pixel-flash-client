@@ -32,7 +32,8 @@ const AllReviews = ({ serviceDetails }) => {
 
             <div className='p-2'>
 
-                <h1 className='text-white font-semibold text-xl '> All Available Reviews: {reviews?.length ? reviews.length : "0"}</h1>
+                <h1 className='text-white font-semibold text-xl '> All Available Reviews: {reviews?.length ?
+                    reviews?.length : "0"}</h1>
 
                 {
                     reviews.map(review => <ReviewCard
