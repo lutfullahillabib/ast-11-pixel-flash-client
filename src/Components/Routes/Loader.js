@@ -9,19 +9,15 @@ const allServices =
         return fetch('http://localhost:5000/allservices')
     };
 
-// const allCategories =
-//     async () => {
-//         return fetch('https://learn-with-labib-server.vercel.app/categories')
-//     };
-
-// const singleCategory =
-//     async ({ params }) => {
-//         return fetch(`https://learn-with-labib-server.vercel.app/categories/${params.name}`)
-//     };
+const singleServiceDetails =
+    async ({ params }) => {
+        return fetch(`http://localhost:5000/allservices/${params.id}`)
+    };
 
 // const singleCourse =
 //     async ({ params }) => {
 //         return fetch(`https://learn-with-labib-server.vercel.app/courses/${params.id}`)
 //     };
 
-export { threeServices, allServices };
+export { threeServices, allServices, singleServiceDetails };
+

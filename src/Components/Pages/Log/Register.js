@@ -8,10 +8,25 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 
 import toast from 'react-hot-toast';
+import useTitle from '../../../Hooks/Title';
 
 
 const Register = () => {
 
+    useTitle('Register / Sign Up');
+
+
+    //
+
+    // window.scrollTo(0, 0);
+
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+
+    // 
 
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
@@ -263,7 +278,7 @@ const Register = () => {
 
 
                 <p className="italic text-center sm:px-6  text-white py-3">Already have an account?
-                    <Link to='/login' title='Login / Sign in' className="underline text-white not-italic font-medium px-3 hover:text-black">Sign in</Link>
+                    <Link to='/login' title='Login / Sign in' className="underline text-white not-italic font-medium px-3 hover:text-black duration-1000">Sign in</Link>
                 </p>
 
                 <div className="flex justify-center space-x-4">
@@ -276,9 +291,9 @@ const Register = () => {
                         className="flex items-center justify-center w-full p-4 space-x-4 border-4 border-black rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-blue-400
                         
                      hover:bg-blue-100 hover:text-black 
-                        ">
+                        duration-1000 ">
 
-                        <FaGoogle className='text-3xl' />
+                        <FaGoogle className='text-3xl ' />
 
                         <p>Sign Up with Google</p>
                     </button>
@@ -303,7 +318,7 @@ const Register = () => {
                     className="space-y-6 ">
                     <div className="space-y-1">
                         <label htmlFor="name" className="block text-white text-start font-semibold text-xl">Name</label>
-                        <input type="text" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
+                        <input type="text" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic " required />
                     </div>
                     <div className="space-y-1">
                         <label htmlFor="photoURL" className="block text-white text-start font-semibold text-xl">Photo-URL</label>
@@ -329,8 +344,8 @@ const Register = () => {
 
                             />
 
-                            <label htmlFor="remember" className="pl-2 text-white hover:text-black hover:underline cursor-pointer">
-                                Accept <Link className='underline text-blue-900 hover:text-white'>Terms & Conditions</Link> .
+                            <label htmlFor="remember" className="pl-2 text-white hover:text-black hover:underline cursor-pointer duration-1000">
+                                Accept <Link className='underline text-blue-900 hover:text-white duration-1000'>Terms & Conditions</Link> .
                             </label>
                         </div>
 
@@ -339,7 +354,7 @@ const Register = () => {
 
                         disabled={!accepted}
 
-                        className="disabled:bg-gray-700 hover:disabled:bg-red-700 hover:disabled:text-white block w-full p-3 text-center text-white bg-blue-900 rounded-lg font-medium hover:text-black hover:bg-blue-300">Sign Up</button>
+                        className="disabled:bg-gray-700 hover:disabled:bg-red-700 hover:disabled:text-white block w-full p-3 text-center text-white bg-blue-900 rounded-lg font-medium hover:text-black hover:bg-blue-300 duration-1000">Sign Up</button>
                 </form>
 
                 <p className='text-red-600 font-semibold text-xl'>{error}</p>

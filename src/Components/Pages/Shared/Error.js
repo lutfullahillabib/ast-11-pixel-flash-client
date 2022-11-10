@@ -5,6 +5,19 @@ import Lottie from 'lottie-react'
 import err from '../../assets/404.json'
 
 const Error = () => {
+
+    //
+
+    // window.scrollTo(0, 0);
+
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+
+    // 
+
     const error = useRouteError();
 
     return (
@@ -28,7 +41,7 @@ const Error = () => {
                                 </div>
                             )}
                             <p className="px-4 pb-10 leading-none text-center text-black text-2xl font-semibold">No signal here! we cannot find the page you are looking for...!!!</p>
-                            <button className="mx-4 h-10 w-44 border rounded-md text-white text-base bg-indigo-700 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-indigo-800">
+                            <button className="mx-4 px-4 py-2 border rounded-md text-white text-base bg-blue-800 hover:bg-blue-400 hover:font-semibold hover:px-10 hover:ease-in-out hover:text-black duration-1000 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-indigo-800">
                                 <Link to='/' >Back to homepage</Link>
                             </button>
                         </div>

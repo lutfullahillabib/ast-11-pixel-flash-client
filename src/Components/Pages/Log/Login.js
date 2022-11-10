@@ -9,9 +9,25 @@ import log from '../../assets/login.json'
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import useTitle from "../../../Hooks/Title";
 
 
 const Login = () => {
+
+    useTitle('Login / Sign In');
+
+
+    //
+
+    // window.scrollTo(0, 0);
+
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+
+    // 
 
     const [error, setError] = useState('');
     const { signIn, providerLogin } = useContext(AuthContext);
@@ -58,7 +74,8 @@ const Login = () => {
                 });
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
+
                 toast.error(`Error = ${error.message}`, {
                     duration: 3000,
                     position: "top-center",
@@ -191,13 +208,13 @@ const Login = () => {
                             <div className="flex items-center">
                                 <input type="checkbox" name="remember" id="remember" className=" rounded-md focus:ring-blue-900 focus:border-blue-900 focus:ring-2 accent-blue-900 h-5 w-5" />
 
-                                <label htmlFor="remember" className="pl-2 text-white hover:text-black hover:underline cursor-pointer">Remember me</label>
+                                <label htmlFor="remember" className="pl-2 text-white hover:text-black hover:underline cursor-pointer duration-1000">Remember me</label>
                             </div>
 
-                            <Link to='/login' className='hover:text-black text-white hover:underline cursor-pointer'>Forgot Password?</Link>
+                            <Link to='/login' className='hover:text-black text-white hover:underline cursor-pointer duration-1000'>Forgot Password?</Link>
                         </div>
                     </div>
-                    <button className="block w-full p-3 text-center text-white bg-blue-900 rounded-lg font-medium hover:text-black hover:bg-blue-300">Sign in</button>
+                    <button className="block w-full p-3 text-center text-white bg-blue-900 rounded-lg font-medium hover:text-black hover:bg-blue-300 duration-1000">Sign in</button>
                 </form>
 
                 <p className='text-red-600 font-semibold text-xl'>{error}</p>
@@ -215,17 +232,19 @@ const Login = () => {
 
                         title="Log in with Google" className="p-3 hover:bg-blue-100 hover:text-black rounded-full
                         
-                         focus:ring-2 focus:ring-offset-1 focus:ring-blue-400
+                         focus:ring-2 focus:ring-offset-1 focus:ring-blue-400 hover:scale-125 duration-1000
                         ">
                         <FaGoogle className='text-3xl' />
                     </button>
                 </div>
 
                 <p className="italic text-center sm:px-6  text-white">Don't have an account?
-                    <Link to='/register' title='Register / Sign Up' className="underline text-white not-italic font-medium px-3 hover:text-black">Sign up</Link>
+                    <Link to='/register' title='Register / Sign Up' className="underline text-white not-italic font-medium px-3 hover:text-black duration-1000">Sign up</Link>
                 </p>
 
             </div>
+
+
         </div>
     );
 };

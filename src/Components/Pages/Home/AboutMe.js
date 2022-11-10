@@ -10,21 +10,7 @@ const AboutMe = () => {
                 ABOUT
             </h1>
 
-            <div className="flex flex-col lg:flex-row mx-5 justify-center items-center gap-3">
-
-                <div className="lg:w-1/2 flex items-center justify-center w-full">
-
-
-                    <img
-                        src={
-                            "https://images.pexels.com/photos/4161786/pexels-photo-4161786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        }
-                        alt=""
-                        className="w-[90%] h-full rounded-xl"
-                    />
-
-                </div>
-
+            <div className="flex flex-col-reverse lg:flex-row mx-5 justify-center items-center gap-3">
 
                 <div className="lg:w-1/2 my-5">
 
@@ -45,6 +31,20 @@ const AboutMe = () => {
                     </p>
 
                 </div>
+
+                <div className="lg:w-1/2 flex items-center justify-center w-full">
+
+
+                    <img
+                        src={
+                            "https://images.pexels.com/photos/4161786/pexels-photo-4161786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        }
+                        alt=""
+                        className="w-[90%] h-full rounded-xl"
+                    />
+
+                </div>
+
 
             </div>
         </div>

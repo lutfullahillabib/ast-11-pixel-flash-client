@@ -5,7 +5,7 @@ const Footer = () => {
 
     return (
         <div>
-            <div className="relative mt-16 bg-blue-400 ">
+            <div className="relative mt-11 bg-blue-400 ">
                 <svg
                     className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-blue-600 "
                     preserveAspectRatio="none"
@@ -23,7 +23,7 @@ const Footer = () => {
                             <div className="mx-auto max-w-3xl space-y-6">
                                 <div className="flex justify-center gap-6">
                                     <Link
-                                        className="text-blue-700 hover:text-blue-900"
+                                        className="text-cyan-300 hover:text-blue-900 hover:scale-150 duration-1000"
                                         to="/"
 
                                         aria-label="Twitter"
@@ -41,7 +41,7 @@ const Footer = () => {
                                     </Link>
 
                                     <Link
-                                        className="text-black hover:text-black/75"
+                                        className="text-black hover:text-white hover:scale-150 duration-1000"
                                         to="/"
 
                                         aria-label="GitHub"
@@ -61,7 +61,7 @@ const Footer = () => {
                                     </Link>
 
                                     <Link
-                                        className="text-pink-600 hover:text-pink-600/75"
+                                        className="text-pink-600 hover:text-red-600 hover:scale-150 duration-1000"
                                         to="/"
 
                                         aria-label="Dribbble"
@@ -88,7 +88,7 @@ const Footer = () => {
                                     <ul className="flex flex-wrap justify-center gap-6 text-sm font-bold">
                                         <li>
                                             <Link
-                                                className="text-black transition hover:text-black/75"
+                                                className="text-black transition hover:text-white duration-1000"
                                                 to="/"
 
                                             >
@@ -97,7 +97,7 @@ const Footer = () => {
                                         </li>
                                         <li>
                                             <a
-                                                className="text-black transition hover:text-black/75"
+                                                className="text-black transition hover:text-white duration-1000"
                                                 // to="/"
                                                 href='#aboutMe'
 
@@ -107,7 +107,7 @@ const Footer = () => {
                                         </li>
                                         <li>
                                             <a
-                                                className="text-black transition hover:text-black/75"
+                                                className="text-black transition hover:text-white duration-1000"
                                                 to="/"
                                                 href='#contact'
 
@@ -117,7 +117,7 @@ const Footer = () => {
                                         </li>
                                         <li>
                                             <Link
-                                                className="text-black transition hover:text-black/75"
+                                                className="text-black transition hover:text-white duration-1000"
                                                 to="/services"
 
                                             >
@@ -127,7 +127,7 @@ const Footer = () => {
 
                                         <li>
                                             <Link
-                                                className="text-black transition hover:text-black/75"
+                                                className="text-black transition hover:text-white duration-1000"
                                                 to="/blog"
 
                                             >

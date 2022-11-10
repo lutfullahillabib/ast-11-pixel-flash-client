@@ -26,7 +26,7 @@ const Header = () => {
             <div className="px-4 py-2 mx-auto  md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between z-50 gap-2">
 
-                    <div className="flex items-center hover:text-white">
+                    <div className="flex items-center hover:text-white duration-1000">
 
                         <Link
                             to="/"
@@ -50,7 +50,7 @@ const Header = () => {
                                 <NavLink
                                     to="/home"
                                     title="Home"
-                                    className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                    className="font-medium tracking-wide text-white transition-colors hover:text-black text-xl duration-1000"
                                 >
                                     Home
                                 </NavLink>
@@ -59,7 +59,7 @@ const Header = () => {
                                 <NavLink
                                     to="/services"
                                     title="Services"
-                                    className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                    className="font-medium tracking-wide text-white transition-colors duration-1000 hover:text-black text-xl"
                                 >
                                     Services
                                 </NavLink>
@@ -73,7 +73,7 @@ const Header = () => {
                                         <NavLink
                                             to="/myReview"
                                             title="My-Review"
-                                            className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                            className="font-medium tracking-wide text-white transition-colors duration-1000 hover:text-black text-xl"
                                         >
                                             My-Review
                                         </NavLink>
@@ -83,7 +83,7 @@ const Header = () => {
                                         <NavLink
                                             to="/addService"
                                             title="Add-Service"
-                                            className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                            className="font-medium tracking-wide text-white transition-colors duration-1000 hover:text-black text-xl"
                                         >
                                             Add-Service
                                         </NavLink>
@@ -96,7 +96,7 @@ const Header = () => {
                                 <NavLink
                                     to="/blog"
                                     title="Blog"
-                                    className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                    className="font-medium tracking-wide text-white transition-colors duration-1000 hover:text-black text-xl"
                                 >
                                     Blog
                                 </NavLink>
@@ -109,12 +109,12 @@ const Header = () => {
                         {
                             user?.uid ?
                                 <>
-                                    <span className='font-semibold text-xl text-black hover:text-yellow-300 w-24'>{user?.displayName}</span>
+                                    <span className='font-semibold text-xl text-black hover:text-yellow-300 w-24 duration-1000'>{user?.displayName}</span>
 
                                     <li>
                                         <NavLink
                                             onClick={handleLogOut}
-                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-400 hover:bg-red-800 
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-1000 rounded shadow-md bg-red-400 hover:bg-red-800 
                                             hover:text-white
                                             focus:shadow-outline focus:outline-none text-xl"
                                             title="Log Out / Sign Out"
@@ -129,7 +129,7 @@ const Header = () => {
                                         <NavLink
                                             to="/login"
                                             title="Log in / Sign in"
-                                            className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                            className="font-medium tracking-wide text-white transition-colors duration-1000 hover:text-black text-xl"
                                         >
                                             Sign in
                                         </NavLink>
@@ -138,12 +138,12 @@ const Header = () => {
                                     <li>
                                         <NavLink
                                             to="/register"
-                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none text-xl hover:text-white 
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-1000 rounded shadow-md focus:shadow-outline focus:outline-none text-xl hover:text-white 
                                             
                                             bg-gradient-to-r from-cyan-300 to-blue-700 
                                             
 
-                                            hover:from-blue-800 hover:to-blue-800
+                                            hover:from-blue-800 hover:to-blue-800 
                                             
                                             "
                                             title="Register / Sign up"
@@ -193,8 +193,8 @@ const Header = () => {
                     <div className="lg:hidden">
                         <button
                             title="Open Menu"
-                            className="p-2 transition duration-200 rounded focus:outline-none focus:shadow-outline -mt-2 -mr-1  hover:bg-white focus:bg-gray-200"
-                            // className="-mt-2 -mr-2  hover:bg-white focus:bg-gray-200"
+                            className="p-2 transition duration-1000 rounded focus:outline-none focus:shadow-outline -mt-2 -mr-1  hover:bg-white focus:bg-gray-200"
+                            // className="-mt-2 -mr-2  hover:bg-white focus:bg-gray-200 duration-1000"
                             onClick={() => setIsMenuOpen(true)}
                         >
                             <svg className="w-5 text-black" viewBox="0 0 24 24">
@@ -216,7 +216,7 @@ const Header = () => {
                             <div className="absolute top-0 left-0 w-full ">
                                 <div className="p-5 bg-blue-400 border rounded shadow-sm head">
                                     <div className="flex items-center justify-between mb-4">
-                                        <div className='p-1 hover:text-white curly'>
+                                        <div className='p-1 hover:text-white curly duration-1000'>
                                             <Link
                                                 to="/"
                                                 title=" Pixel-Flash"
@@ -232,7 +232,7 @@ const Header = () => {
                                         <div>
                                             <button
                                                 title="Close Menu"
-                                                className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-white focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                                className="p-2 -mt-2 -mr-2 transition duration-1000 rounded hover:bg-white focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                                 onClick={() => setIsMenuOpen(false)}
                                             >
                                                 <svg className="w-5 text-black" viewBox="0 0 24 24">
@@ -252,7 +252,7 @@ const Header = () => {
                                                     to="/home"
 
                                                     title="Home"
-                                                    className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                                    className="font-medium tracking-wide text-white transition-colors duration-1000 hover:text-black text-xl"
                                                 >
                                                     Home
                                                 </NavLink>
@@ -261,7 +261,7 @@ const Header = () => {
                                                 <NavLink
                                                     to="/services"
                                                     title="Services"
-                                                    className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                                    className="font-medium tracking-wide text-white transition-colors duration-1000 hover:text-black text-xl"
                                                 >
                                                     Services
                                                 </NavLink>
@@ -274,7 +274,7 @@ const Header = () => {
                                                         <NavLink
                                                             to="/myReview"
                                                             title="My-Review"
-                                                            className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                                            className="font-medium tracking-wide text-white transition-colors duration-1000 hover:text-black text-xl"
                                                         >
                                                             My-Review
                                                         </NavLink>
@@ -284,7 +284,7 @@ const Header = () => {
                                                         <NavLink
                                                             to="/addService"
                                                             title="Add-Service"
-                                                            className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                                            className="font-medium tracking-wide text-white transition-colors duration-1000 hover:text-black text-xl"
                                                         >
                                                             Add-Service
                                                         </NavLink>
@@ -297,7 +297,7 @@ const Header = () => {
                                                 <NavLink
                                                     to="/blog"
                                                     title="Blog"
-                                                    className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                                    className="font-medium tracking-wide text-white transition-colors duration-1000 hover:text-black text-xl"
                                                 >
                                                     Blog
                                                 </NavLink>
@@ -307,13 +307,13 @@ const Header = () => {
                                                 user?.uid ?
                                                     <>
                                                         <li>
-                                                            <span className='font-semibold text-xl text-black hover:text-yellow-300 pt-4'>{user?.displayName}</span>
+                                                            <span className='font-semibold text-xl text-black hover:text-yellow-300 pt-4 duration-1000'>{user?.displayName}</span>
                                                         </li>
 
                                                         <li>
                                                             <NavLink
                                                                 onClick={handleLogOut}
-                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-800 focus:shadow-outline focus:outline-none text-xl hover:text-white"
+                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-1000 rounded shadow-md bg-red-600 hover:bg-red-800 focus:shadow-outline focus:outline-none text-xl hover:text-white"
                                                                 title="Log Out / Sign Out"
                                                             >
                                                                 Sign Out
@@ -326,7 +326,7 @@ const Header = () => {
                                                             <NavLink
                                                                 to="/login"
                                                                 title="Log in / Sign in"
-                                                                className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
+                                                                className="font-medium tracking-wide text-white transition-colors duration-1000 hover:text-black text-xl"
                                                             >
                                                                 Sign in
                                                             </NavLink>
@@ -335,7 +335,7 @@ const Header = () => {
                                                         <li>
                                                             <NavLink
                                                                 to="/register"
-                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-800 focus:shadow-outline focus:outline-none text-xl hover:text-white"
+                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-1000 rounded shadow-md bg-blue-600 hover:bg-blue-800 focus:shadow-outline focus:outline-none text-xl hover:text-white"
                                                                 title="Register / Sign up"
                                                             >
                                                                 Sign up
