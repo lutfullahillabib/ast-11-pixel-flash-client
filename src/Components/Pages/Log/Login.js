@@ -49,7 +49,7 @@ const Login = () => {
                     email: user.email,
                 };
 
-                fetch("http://localhost:5000/jwt", {
+                fetch("https://ast-11-pixel-flash-server.vercel.app/jwt", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -145,7 +145,7 @@ const Login = () => {
                     email: user.email,
                 };
 
-                fetch("http://localhost:5000/jwt", {
+                fetch("https://ast-11-pixel-flash-server.vercel.app/jwt", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",

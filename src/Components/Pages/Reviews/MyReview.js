@@ -31,7 +31,7 @@ const MyReview = () => {
     const [myReviews, setMyReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myReview?email=${user?.email}`, {
+        fetch(`https://ast-11-pixel-flash-server.vercel.app/myReview?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("Pixel-Flash")}`,
             },
@@ -56,7 +56,7 @@ const MyReview = () => {
     const handleDelete = id => {
         const proceed = window.confirm(`Sure, You Want to Delete this Review ?`);
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://ast-11-pixel-flash-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

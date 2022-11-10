@@ -39,7 +39,7 @@ const ReviewUpdate = () => {
         const form = event.target;
         // form.reset()
 
-        fetch(`http://localhost:5000/myReview/${_id}`, {
+        fetch(`https://ast-11-pixel-flash-server.vercel.app/myReview/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

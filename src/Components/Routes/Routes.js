@@ -29,7 +29,7 @@ const router = createBrowserRouter([
                 loader: threeServices,
                 element: <Home></Home>,
                 // loader: () => {
-                //     return fetch('http://localhost:5000/services')
+                //     return fetch('https://ast-11-pixel-flash-server.vercel.app/services')
                 // },
             },
             {
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
                 loader: singleServiceDetails,
                 element: <ServiceDetails></ServiceDetails>,
                 // loader: ({ params }) => {
-                //     return fetch(`http://localhost:5000/allservices/${params.id}`)
+                //     return fetch(`https://ast-11-pixel-flash-server.vercel.app/allservices/${params.id}`)
                 // },
             },
 
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
                 path: '/update/:id',
                 loader: updateReview,
                 element: <PrivateRoute><ReviewUpdate></ReviewUpdate></PrivateRoute>,
-                // loader: ({ params }) => fetch(`http://localhost:5000/myReview/${params.id}`),
+                // loader: ({ params }) => fetch(`https://ast-11-pixel-flash-server.vercel.app/myReview/${params.id}`),
             },
 
             {

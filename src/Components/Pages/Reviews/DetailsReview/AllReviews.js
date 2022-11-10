@@ -16,7 +16,7 @@ const AllReviews = ({ serviceDetails }) => {
     const [refresh, setRefresh] = useState(true);
 
     useEffect(() => {
-        const url = `http://localhost:5000/reviews?serviceName=${name}`;
+        const url = `https://ast-11-pixel-flash-server.vercel.app/reviews?serviceName=${name}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
