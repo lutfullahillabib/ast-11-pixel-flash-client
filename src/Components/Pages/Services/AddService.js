@@ -38,7 +38,7 @@ const AddService = () => {
         const description = form.description.value;
         const price = form.price.value;
 
-        const ratings = parseInt(form.rating.value);
+        const ratings = parseFloat(form.rating.value);
 
         const rating = ratings.toString();
 

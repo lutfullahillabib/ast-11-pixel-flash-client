@@ -68,27 +68,56 @@
 - ## https://daisyui.com/
 - ## https://lottiefiles.com/
 ---
+---
 # Server = [(vercel) - APIs]
 
 ## `1. Root = `
 
-## https://learn-with-labib-server.vercel.app/
+## https://ast-11-pixel-flash-server.vercel.app/
 
-## `2. All Categories = `
+## `2. Three Services (Home) = `
 
-## https://learn-with-labib-server.vercel.app/categories/
+## https://ast-11-pixel-flash-server.vercel.app/services/
 
-## `3. All Courses -by- Single Category = `
+## `2. All Services = `
 
-## https://learn-with-labib-server.vercel.app/categories/${category}
+## https://ast-11-pixel-flash-server.vercel.app/allservices/
 
-## `4. All Courses = `
+## `3. Single Service Details = `
 
-## https://learn-with-labib-server.vercel.app/courses/
+## https://ast-11-pixel-flash-server.vercel.app/allservices/${id}
 
-## `5. Single Course = `
+## `4. Update Review = `
 
-## https://learn-with-labib-server.vercel.app/courses/${id}
+## https://ast-11-pixel-flash-server.vercel.app/myReview/${_id}
+
+## `5. Add Service = `
+
+## https://ast-11-pixel-flash-server.vercel.app/addService
+
+## `6. Add Review Post - Details Page = `
+
+## https://ast-11-pixel-flash-server.vercel.app/review
+
+## `7. Delete Review = `
+
+## https://ast-11-pixel-flash-server.vercel.app/reviews/${id}
+
+---
+
+## `8. JWT = `
+
+## https://ast-11-pixel-flash-server.vercel.app/jwt
+
+---
+
+## `9. ?email = `
+
+## https://ast-11-pixel-flash-server.vercel.app/myReview?email=${user?.email}
+
+## `10. ?serviceName = `
+
+## https://ast-11-pixel-flash-server.vercel.app/reviews?serviceName=${name}
 
 ---
 ---
