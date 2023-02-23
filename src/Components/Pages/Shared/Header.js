@@ -23,7 +23,9 @@ const Header = () => {
 
     return (
         <div className="bg-blue-600 sticky top-0 z-50 head">
+            
             <div className="px-4 py-2 mx-auto  md:px-24 lg:px-8">
+              
                 <div className="relative flex items-center justify-between z-50 gap-2">
 
                     <div className="flex items-center hover:text-white duration-1000">
